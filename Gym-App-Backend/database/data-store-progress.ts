@@ -3,7 +3,7 @@ import {ProgressLog} from "../models/ProgressLog";
 
 const prisma = new PrismaClient();
 
-export async function addProgess(p:ProgressLog){
+export async function addProgress(p:ProgressLog){
     try {
         const newProgress = await prisma.progressLog.create({
             data:{

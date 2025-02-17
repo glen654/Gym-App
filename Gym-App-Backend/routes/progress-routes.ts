@@ -1,13 +1,13 @@
 import express from "express";
 import {ProgressLog} from "../models/ProgressLog";
-import {addProgess, getProgress} from "../database/data-store-progress";
+import {addProgress, getProgress} from "../database/data-store-progress";
 
 const router = express.Router();
 
 router.post("/add",async (req,res)=>{
     const progress:ProgressLog = req.body;
     try{
-        const newProgress = await addProgess(progress);
+        const newProgress = await addProgress(progress);
         res.json(newProgress);
     }catch (err){
         console.log("Error creating progress",err);

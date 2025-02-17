@@ -1,7 +1,20 @@
 import express from "express";
-import {getAllWorkoutPlans} from "../database/data-store-workoutplans";
+import {addWorkOut, getAllWorkoutPlans} from "../database/data-store-workoutplans";
+import {WorkoutPlan} from "../models/WorkoutPlan";
 
 const router = express.Router();
+
+router.post("/add",async (req,res) => {
+    const workOut: WorkoutPlan = req.body;
+    try{
+        const newWorkOut = await addWorkOut(workOut);
+        res.json(newWorkOut);
+    }catch (err){
+        console.log("Error creating workOut",err);
+        res.status(400).send("Error creating workOut");
+    }
+})
+
 
 router.get('/view', async (req, res) => {
     try{
