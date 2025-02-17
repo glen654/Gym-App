@@ -3,6 +3,7 @@ import membershipRoutes from "./routes/membership-routes";
 import classBookingRoutes from "./routes/classBooking-routes";
 import progressRoutes from "./routes/progress-routes";
 import workoutRoutes from "./routes/workout-routes";
+import userRoutes from "./routes/user-routes";
 
 const app = express();
 app.use(express.json());
@@ -18,7 +19,8 @@ app.use('/',(req,res,next)=>{
 app.use('/membership',membershipRoutes);
 app.use('/booking',classBookingRoutes);
 app.use('/progress',progressRoutes);
-app.use('/workout',workoutRoutes)
+app.use('/workout',workoutRoutes);
+app.use('/user', userRoutes);
 
 
 app.listen(3000,(err=>{
